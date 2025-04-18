@@ -1,0 +1,23 @@
+@media (max-width: 600px) {
+    .main-content {
+        padding: 10%;
+    }
+
+    .report-section-title {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .report-image-wrapper {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .sidebar-trigger {
+        display: block;
+    }
+}

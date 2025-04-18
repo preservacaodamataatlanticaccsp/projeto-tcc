@@ -6,7 +6,8 @@
 }
 
 :root {
-    --highlight: rgb(97, 80, 205);
+    --highlight: rgb(79, 123, 79);
+    --contrast: rgb(116, 149, 116);
     --font-title: 4rem;
     --font-large: 2.5rem;
     --font-medium: 1.5rem;
@@ -21,10 +22,6 @@
     scroll-behavior: smooth;
     text-decoration: none;
     list-style-type: none;
-
-    /* font-family: "Fira Sans", sans-serif;
-    font-weight: 100;
-    font-style: normal; */
 }
 
 *:focus {
@@ -122,6 +119,7 @@
 
 .header-nav-link {
     width: 150px;
+    min-width: 110px;
     height: 100%;
     color: black;
     font-size: var(--font-small);
@@ -163,15 +161,17 @@ body:has(.sidebar-shown) {
 }
 
 .sidebar-trigger {
+    background: rgba(255, 255, 255, .25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 5px 10px;
+    display: none;
     position: fixed;
-    top: 25px;
+    top: calc(env(safe-area-inset-top) + 20px);
     left: 25px;
     z-index: 9;
-    opacity: 0;
     transition: .3s;
     cursor: pointer;
-    pointer-events: none;
-    touch-action: none;
 }
 
 .sidebar-trigger svg {
@@ -180,9 +180,9 @@ body:has(.sidebar-shown) {
 }
 
 .sidebar {
-    width: 300px;
+    width: 80%;
     height: 100dvh;
-    background: linear-gradient(rgb(97, 80, 205), rgb(128, 57, 194));
+    background: linear-gradient(var(--highlight), rgb(67, 99, 67));
     padding: 30px 0;
     display: flex;
     flex-direction: column;
@@ -191,38 +191,50 @@ body:has(.sidebar-shown) {
     gap: 20px;
     position: fixed;
     top: 0;
-    left: -300px;
+    left: -100%;
     z-index: 10;
-    transition: .3s;
+    transition: .4s;
 }
 
 .sidebar-shown {
     left: 0;
-    box-shadow: 0 0 10px 1000vw rgba(0, 0, 0, .25);
+    box-shadow: 0 0 10px 1000vw rgba(0, 0, 0, .3);
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, .3));
 }
 
 .sidebar-hidden {
-    left: -300px;
+    left: -100%;
 }
 
 .sidebar * {
     color: white;
     text-align: left;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 200;
+    font-style: normal;
 }
 
 .sidebar-close {
-    background: none;
+    width: var(--size);
+    height: var(--size);
+    background: var(--contrast);
     border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 48px;
+    right: calc(var(--size) / 2 * -1);
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    --size: 40px;
 }
 
 .sidebar-close svg {
-    width: 25px;
-    height: 25px;
+    width: 50%;
+    height: 50%;
 }
 
 .sidebar a, .sidebar ul {
@@ -275,9 +287,25 @@ body:has(.sidebar-shown) {
     background: rgba(255, 255, 255, .25);
 }
 
+.sidebar-item {
+    position: relative;
+}
+
+.sidebar-item::after {
+    content: "";
+    width: 80%;
+    height: 2px;
+    background: white;
+    display: block;
+    position: absolute;
+    top: 96%;
+    left: 20px;
+    opacity: 0.4;
+}
+
 .landing {
     width: 100%;
-    height: 800px;
+    height: 110dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -305,8 +333,7 @@ body:has(.sidebar-shown) {
 }
 
 .landing-hero {
-    width: min(50%, 700px);
-    min-width: 600px;
+    width: clamp(300px, 700px, 800px);
     height: 45dvh;
     text-align: center;
     padding: 1.5rem;
@@ -321,7 +348,7 @@ body:has(.sidebar-shown) {
 
 .hero-title {
     color: white;
-    font-size: var(--font-title);
+    font-size: clamp(5vw, var(--font-title), 9vw);
 }
 
 .hero-subtitle {
@@ -339,10 +366,8 @@ body:has(.sidebar-shown) {
 
 .main-content {
     width: 100%;
-    margin: 48px 0 400px;
-    padding: 0 20%; 
-    display: grid;
-    grid-template-columns: 75% 30%;
+    margin: 40px 0 400px;
+    padding: 0 35% 0 20%;
     justify-content: center;
     gap: calc(var(--gap) * 2);
 }
