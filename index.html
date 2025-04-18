@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
-    <title>Journalism</title>
+    <title>Reportagem</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
     <header class="header">
-        <h1 class="header-brand">Journalism</h1>
-        <nav class="header-nav primary-font">
-            <ul class="header-nav-list">
-                <li class="header-nav-item"><a href="#home" class="nav-link content-highlight">Home</a></li>
-                <li class="header-nav-item"><a href="#report" class="nav-link content-highlight">Content</a></li>
-                <li class="header-nav-item"><a href="#sources" class="nav-link content-highlight">Sources</a></li>
-            </ul>
-        </nav>
+        <div class="header-nav">
+            <a href="#home" class="header-nav-link content-highlight">Home</a>
+            <a href="#report" class="header-nav-link content-highlight">Reportagem</a>
+            <a href="#cap-1" class="header-nav-link content-highlight">Capítulo 1</a>
+            <a href="#cap-2" class="header-nav-link content-highlight">Capítulo 2</a>
+        </div>
     </header>
 
-    <div class="sidebar-trigger">
+    <!-- <div class="sidebar-trigger">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
         </svg>
@@ -44,7 +47,7 @@
 
            <a href="#sources" class="sidebar-sources">Sources</a>
         </div>
-    </nav>
+    </nav> -->
 
     <main class="content">
 
@@ -53,17 +56,18 @@
                 <img src="./assets/LandingBackground.jpeg" alt="Landing background">
             </div>
             <main class="landing-hero primary-font">
-                <h1 class="hero-title">Titulo fera</h1>
-                <p class="hero-subtitle">Subtitulo Subtitulo SubtituloSubtitulo Subtitulo Subtitulo Subtitulo Subtitulo</p>
-                <p class="hero-subtitle">by Eduardo</p>
+                <h1 class="hero-title">Reportagem 2025</h1>
+                <p class="hero-subtitle">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, accusamus quis, harum magni quia accusantium rem placeat delectus quod quisquam illum? Tempora omnis pariatur quia. Unde, reiciendis non. Asperiores, quia.</p>
+                <p class="hero-subtitle hero-signature">by Eduardo Saliby Salomão</p>
             </main>
         </section>
 
         <section class="main-content" id="report">
 
             <div class="report-wrapper">
+                <div id="cap-1" class="page-markers"></div>
                 <div class="report-section" id="section-a">
-                    <h1 class="report-section-title bottom-highlight">
+                    <h1 class="report-section-title line-highlight">
                         1° capítulo: A cidade de São Paulo
                     </h1>
                     <p class="report-section-text">
@@ -79,7 +83,7 @@
                         Uma característica que podemos perceber ao analisar a imagem desse mapa, é que nas áreas mais centrais da cidade,a distribuição de vegetação é baixa, e isso ocorre pelo alto nível de urbanização nesses locais que estão tomados por prédios e comércios, resultando em poucas brechas para existirem árvores e outras formas de natureza. E com o novo boom da construção civil na cidade, a tendência é que os níveis piorem ainda mais e que a taxa de urbanização aumente ainda mais.
                     </p>
                     <p class="report-section-text">
-                        O PMMA(O Plano Municipal de Conservação e Recuperação da Mata Atlântica) criado em 2006, e integrado no plano diretor de 2014 tem como objetivo direcionar de qual forma os municípios devem atuar com seus projetos de preservação, quais áreas devem ser os focos dos projetos, incentivo a educação ambiental, disponibilizar subsídios ambientais para os projetos etc.
+                        O PMMA (O Plano Municipal de Conservação e Recuperação da Mata Atlântica) criado em 2006, e integrado no plano diretor de 2014 tem como objetivo direcionar de qual forma os municípios devem atuar com seus projetos de preservação, quais áreas devem ser os focos dos projetos, incentivo a educação ambiental, disponibilizar subsídios ambientais para os projetos etc.
                     </p>
                     <p class="report-section-text">
                         O arquiteto urbanista, Breno Zylbersztajn formado pelo Mackenzie, possui experiência em consultoria socioambiental, trabalhou quatro anos na prefeitura de São Paulo na parte de segurança hídrica e paisagem urbana, gentilmente cedeu seu tempo para responder às seguintes perguntas.
@@ -87,38 +91,35 @@
                 </div>
 
                 <div class="report-section" id="section-b">
-                    <h3 class="report-section-subtitle">
+                    <h3 class="report-section-subtitle line-highlight">
                         Como você enxerga o boom na construção civil na cidade e se ele é prejudicial para o meio ambiente?
                     </h3>
                     <p class="report-section-text">
-                        <span><bold>Breno: </bold></span>
-                        <span>Eu vejo como um bom sinal, a demanda por imóveis urbanos está movimentando a economia, arrecadando impostos, garantindo empregos, fazendo a economia girar. Mostrando que existe crédito na praça e vontade de investidores aceitarem o risco de empreender no setor. Essa movimentação da construção civil é resultado do plano diretor de 2014, que orienta o desenvolvimento da cidade até 2029. Desenvolvido com a ampla participação da sociedade civil e atendendo os princípios estabelecidos no Estatuto da Cidade que orienta o adensamento urbano, para os eixos do transporte público, visto que o uso de carros gera um grande resíduo de poluentes. Algumas leis foram derivadas desses processos, como as leis de ocupação do solo, o código de obras e edificações, a lei do zoneamento urbano entre outras, que servem como indicação de onde se pode construir, de como se pode construir e como se deve construir.</span>
+                        <span class="text-highlight">Breno</span><span>: Eu vejo como um bom sinal, a demanda por imóveis urbanos está movimentando a economia, arrecadando impostos, garantindo empregos, fazendo a economia girar. Mostrando que existe crédito na praça e vontade de investidores aceitarem o risco de empreender no setor. Essa movimentação da construção civil é resultado do plano diretor de 2014, que orienta o desenvolvimento da cidade até 2029. Desenvolvido com a ampla participação da sociedade civil e atendendo os princípios estabelecidos no Estatuto da Cidade que orienta o adensamento urbano, para os eixos do transporte público, visto que o uso de carros gera um grande resíduo de poluentes. Algumas leis foram derivadas desses processos, como as leis de ocupação do solo, o código de obras e edificações, a lei do zoneamento urbano entre outras, que servem como indicação de onde se pode construir, de como se pode construir e como se deve construir.</span>
                     </p>
-                    <h3 class="report-section-subtitle">
+                    <h3 class="report-section-subtitle line-highlight">
                         Existem projetos que visem conciliar o crescimento urbano com o meio ambiente?
                     </h3>
                     <p class="report-section-text">
-                        <span><bold>Breno: </bold></span>
-                        <span>As áreas verdes em São Paulo, sejam matas ou espaços abertos, enfrentam dois problemas diferentes:a proteção ambiental e a expansão urbana. Enquanto a proteção ambiental, se prevista em lei, é obrigatória, a construção habitacional também precisa seguir normas e planos estabelecidos, porém devido a uma falta de regulamentação clara, conflitos acontecem entre a sociedade civil e a iniciativa privada. Hoje na cidade, um outro problema significativo é o passivo ambiental gerado por projetos públicos, que frequentemente ignoram normas ambientais. Empresas públicas, acumulam passivos ao não cumprirem termos de compensação ambiental em projetos que frequentemente substituem áreas verdes por infraestruturas que contradizem práticas sustentáveis. Um exemplo notável são os "Piscinões", que substituem árvores por estruturas cinzas. Uma proposta que pode combater esses conflitos é o manejo sustentável, onde árvores com risco de queda e em situação de perigo, seriam removidas de forma planejada e com compensação ambiental, além de que a sua madeira seria utilizada de forma a gerar receita e emprego.</span>
+                        <span class="text-highlight">Breno</span><span>: As áreas verdes em São Paulo, sejam matas ou espaços abertos, enfrentam dois problemas diferentes:a proteção ambiental e a expansão urbana. Enquanto a proteção ambiental, se prevista em lei, é obrigatória, a construção habitacional também precisa seguir normas e planos estabelecidos, porém devido a uma falta de regulamentação clara, conflitos acontecem entre a sociedade civil e a iniciativa privada. Hoje na cidade, um outro problema significativo é o passivo ambiental gerado por projetos públicos, que frequentemente ignoram normas ambientais. Empresas públicas, acumulam passivos ao não cumprirem termos de compensação ambiental em projetos que frequentemente substituem áreas verdes por infraestruturas que contradizem práticas sustentáveis. Um exemplo notável são os "Piscinões", que substituem árvores por estruturas cinzas. Uma proposta que pode combater esses conflitos é o manejo sustentável, onde árvores com risco de queda e em situação de perigo, seriam removidas de forma planejada e com compensação ambiental, além de que a sua madeira seria utilizada de forma a gerar receita e emprego.</span>
                     </p>
-                    <h3 class="report-section-subtitle">
+                    <h3 class="report-section-subtitle line-highlight">
                         Qual a viabilidade das novas construções possuírem elementos sustentáveis? 
                     </h3>
                     <p class="report-section-text">
-                        <span><bold>Breno: </bold></span>
-                        <span>Eu vejo como um bom sinal, a demanda por imóveis urbanos está movimentando a economia, arrecadando impostos, garantindo empregos, fazendo a economia girar. Mostrando que existe crédito na praça e vontade de investidores aceitarem o risco de empreender no setor. Essa movimentação da construção civil é resultado do plano diretor de 2014, que orienta o desenvolvimento da cidade até 2029. Desenvolvido com a ampla participação da sociedade civil e atendendo os princípios estabelecidos no Estatuto da Cidade que orienta o adensamento urbano, para os eixos do transporte público, visto que o uso de carros gera um grande resíduo de poluentes. Algumas leis foram derivadas desses processos, como as leis de ocupação do solo, o código de obras e edificações, a lei do zoneamento urbano entre outras, que servem como indicação de onde se pode construir, de como se pode construir e como se deve construir.</span>
+                        <span class="text-highlight">Breno</span><span>: Eu vejo como um bom sinal, a demanda por imóveis urbanos está movimentando a economia, arrecadando impostos, garantindo empregos, fazendo a economia girar. Mostrando que existe crédito na praça e vontade de investidores aceitarem o risco de empreender no setor. Essa movimentação da construção civil é resultado do plano diretor de 2014, que orienta o desenvolvimento da cidade até 2029. Desenvolvido com a ampla participação da sociedade civil e atendendo os princípios estabelecidos no Estatuto da Cidade que orienta o adensamento urbano, para os eixos do transporte público, visto que o uso de carros gera um grande resíduo de poluentes. Algumas leis foram derivadas desses processos, como as leis de ocupação do solo, o código de obras e edificações, a lei do zoneamento urbano entre outras, que servem como indicação de onde se pode construir, de como se pode construir e como se deve construir.</span>
                     </p>
-                    <h3 class="report-section-subtitle">
+                    <h3 class="report-section-subtitle line-highlight">
                         Existem projetos do governo que visem incentivar a preservação da Mata Atlântica?
                     </h3>
                     <p class="report-section-text">
-                        <span><bold>Breno: </bold></span>
-                        <span>O principal projeto que existe atualmente é o PMMA,que é o Plano Municipal de Mata Atlântica ele identifica, caracteriza e mapeia as porções de Mata Atlântica que estão na cidade.Ainda que eu ache incipiente, já é um sinal que o governo atua nesse sentido, que existem algumas coisas indo para frente. E existe uma série de parques, de áreas ambientais tombadas, o Parque da Serra da Cantareira é um bom exemplo disso. E eu acho que a gente vê também, não necessariamente indo direto ao foco, a prefeitura da cidade de São Paulo, ela tem se aproximado e firmado acordos com organizações internacionais para seguir um desenvolvimento mais sustentável, o acordo firmado recentemente com a ONU para seguir a política de Objetivos de Desenvolvimento Sustentável. Então, é um indicador, é um posicionamento que mostra essa tendência. Agora, o que eu queria ver é mesmo na prática, cadê a valorização dos parques urbanos, no meio da cidade.</span>
+                        <span class="text-highlight">Breno</span><span>: O principal projeto que existe atualmente é o PMMA,que é o Plano Municipal de Mata Atlântica ele identifica, caracteriza e mapeia as porções de Mata Atlântica que estão na cidade.Ainda que eu ache incipiente, já é um sinal que o governo atua nesse sentido, que existem algumas coisas indo para frente. E existe uma série de parques, de áreas ambientais tombadas, o Parque da Serra da Cantareira é um bom exemplo disso. E eu acho que a gente vê também, não necessariamente indo direto ao foco, a prefeitura da cidade de São Paulo, ela tem se aproximado e firmado acordos com organizações internacionais para seguir um desenvolvimento mais sustentável, o acordo firmado recentemente com a ONU para seguir a política de Objetivos de Desenvolvimento Sustentável. Então, é um indicador, é um posicionamento que mostra essa tendência. Agora, o que eu queria ver é mesmo na prática, cadê a valorização dos parques urbanos, no meio da cidade.</span>
                     </p>
                 </div>
 
+                <div id="cap-2" class="page-markers"></div>
                 <div class="report-section" id="section-c">
-                    <h1 class="report-section-subtitle">
+                    <h1 class="report-section-title line-highlight">
                         2º capítulo: O clube de campo de São Paulo
                     </h1>
                     <p class="report-section-text">

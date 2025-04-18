@@ -7,6 +7,11 @@
 
 :root {
     --highlight: rgb(97, 80, 205);
+    --font-title: 4rem;
+    --font-large: 2.5rem;
+    --font-medium: 1.5rem;
+    --font-small: 1.1rem;
+    --font-label: .7rem;
 }
 
 * {
@@ -16,43 +21,66 @@
     scroll-behavior: smooth;
     text-decoration: none;
     list-style-type: none;
+
+    /* font-family: "Fira Sans", sans-serif;
+    font-weight: 100;
+    font-style: normal; */
 }
 
 *:focus {
     outline: none;
 }
 
-#main-background {
-    width: 100vw;
-    height: 100dvh;
-    background: gray;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+@keyframes fadeInBrightness {
+    from {
+        filter: brightness(0);
+    }
+    to {
+        filter: brightness(1);
+    }
 }
 
-#main-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+@keyframes resetPosition {
+    to {
+        top: 0;
+        left: 0;
+    }
 }
 
-.bottom-highlight {
+.page-markers {
+    height: 0;
     position: relative;
+    top: -10px;
+    visibility: hidden;
 }
 
-.bottom-highlight::after {
+.line-highlight {
+    position: relative;
+    --pos: -10px;
+    --opt: 0;
+}
+
+.line-highlight-visible {
+    --pos: 0;
+    --opt: 0.15;
+}
+
+.line-highlight::after {
     content: "";
-    width: 30px;
-    height: 2px;
-    background: var(--highlight);
+    width: 40px;
+    height: 3px;
+    background: rgb(0, 0, 0);
     display: block;
     position: absolute;
-    top: calc(100% + 12px);
-    left: -2px;
-    z-index: 1;
-    opacity: .5;
+    top: -10px;
+    left: var(--pos);
+    opacity: var(--opt);
+    transition: .5s;
+}
+
+.text-highlight {
+    font-weight: bold;
+    background: rgb(231, 231, 231);
 }
 
 .content-highlight {
@@ -73,29 +101,39 @@
 }
 
 .header {
-    height: 45px;
+    height: 48px;
     margin: auto;
-    background: white;
+    background: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(30px);
     padding: 0 20%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    position: fixed;
+    top: -48px;
+    z-index: 100;
+    animation: resetPosition 0.5s .25s ease-in-out forwards;
 }
 
-.header-brand {
-    font-size: 1.6rem;
-}
-
-.header-nav-list {
+.header-nav {
+    height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    gap: min(20%, 70px);
 }
 
-.nav-link {
+.header-nav-link {
+    width: 150px;
+    height: 100%;
     color: black;
-    font-size: 1rem;
+    font-size: var(--font-small);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-nav-link:hover {
+    color: black;
+    background: rgba(0, 0, 0, 0.06);
 }
 
 body:has(.sidebar-shown) .content, body:has(.sidebar-shown) .header {
@@ -106,6 +144,22 @@ body:has(.sidebar-shown) .content, body:has(.sidebar-shown) .header {
 body:has(.sidebar-shown) {
     height: 100dvh;
     overflow: hidden;
+}
+
+#main-background {
+    width: 100vw;
+    height: 100dvh;
+    background: gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#main-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sidebar-trigger {
@@ -177,7 +231,7 @@ body:has(.sidebar-shown) {
 }
 
 .sidebar a {
-    font-size: 1.7rem;
+    font-size: var(--font-medium);
 }
 
 .sidebar li, .sidebar a {
@@ -229,6 +283,7 @@ body:has(.sidebar-shown) {
     align-items: center;
     position: relative;
     overflow: hidden;
+    animation: fadeInBrightness 1s ease-in-out forwards;
 }
 
 .landing-image {
@@ -240,7 +295,13 @@ body:has(.sidebar-shown) {
     left: 50%;
     transform: translate(-50%, -50%) scale(1.1);
     z-index: -1;
-    filter: brightness(.7);
+    filter: brightness(0.85) hue-rotate(30deg);
+}
+
+.landing-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .landing-hero {
@@ -255,29 +316,35 @@ body:has(.sidebar-shown) {
     justify-content: center;
     align-items: center;
     gap: 2.7rem;
+    /* backdrop-filter: blur(5px); */
 }
 
 .hero-title {
     color: white;
-    font-size: 3.8rem;
+    font-size: var(--font-title);
 }
 
 .hero-subtitle {
     width: 85%;
     color: white;
-    font-size: 1.1rem;
+    font-size: var(--font-small);
     line-height: 1.7rem;
+}
+
+.hero-signature {
+    font-weight: bold;
+    position: relative;
+    top: 150px;
 }
 
 .main-content {
     width: 100%;
-    margin: 80px 0;
-    padding: 0 20%;
+    margin: 48px 0 400px;
+    padding: 0 20%; 
     display: grid;
-    grid-template-columns: calc(70% - var(--gap)) calc(30% - var(--gap));
+    grid-template-columns: 75% 30%;
     justify-content: center;
     gap: calc(var(--gap) * 2);
-    --gap: 40px;
 }
 
 .report-wrapper {
@@ -293,25 +360,23 @@ body:has(.sidebar-shown) {
 }
 
 .report-section-title {
-    font-size: 2.2rem;
+    font-size: var(--font-large);
     font-weight: bold;
     margin: 60px 0 20px;
 }
 
-.report-section-title::after, .sources-title-container::after {
-    top: calc(100% + 2px);
-}
-
 .report-section-subtitle {
-    font-size: 1.2rem;
+    font-size: var(--font-medium);
     font-weight: bolder;
+    font-style: italic;
     text-align: justify;
-    margin: 16px 0 8px;
+    margin: 32px 0 8px;
+    position: relative;
 }
 
 .report-section-text {
     text-align: justify;
-    font-size: 1.1rem;
+    font-size: var(--font-small);
 }
 
 .report-image-wrapper {
@@ -334,29 +399,9 @@ body:has(.sidebar-shown) {
 }
 
 .report-image-label {
-    font-size: .8rem;
+    font-size: var(--font-label);
     opacity: .5;
 }
-
-.side-content-box {
-    color: rgba(0, 0, 0, 0.5);
-    margin-top: 60px;
-    padding: 1rem;
-}
-
-/* .side-content-box::after {
-    content: '';
-    width: calc(100% + var(--border-size) * 2);
-    height: calc(100% + var(--border-size) * 2);
-    background: linear-gradient(60deg, rgb(97, 80, 205), rgb(128, 57, 194));
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    opacity: 1;
-    --border-size: 2px;
-} */
 
 .side-content-box::before{
     content: "";
@@ -399,7 +444,7 @@ body:has(.sidebar-shown) {
 }
 
 .sources-title-container h1 {
-    font-size: 2.2rem;
+    font-size: var(--font-large);
     font-weight: bold;
 }
 
@@ -439,8 +484,4 @@ body:has(.sidebar-shown) {
 .sources-item:hover {
     color: var(--highlight);
     text-decoration: underline;
-}
-
-#section-b {
-    background: lightblue;
 }
