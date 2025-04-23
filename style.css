@@ -12,7 +12,7 @@
     --font-large: 2.5rem;
     --font-medium: 1.5rem;
     --font-small: 1.1rem;
-    --font-label: .7rem;
+    --font-label: .85rem;
 }
 
 * {
@@ -366,7 +366,7 @@ body:has(.sidebar-shown) {
 
 .main-content {
     width: 100%;
-    margin: 40px 0 400px;
+    margin: 80px 0 400px;
     padding: 0 35% 0 20%;
     justify-content: center;
     gap: calc(var(--gap) * 2);
@@ -387,7 +387,7 @@ body:has(.sidebar-shown) {
 .report-section-title {
     font-size: var(--font-large);
     font-weight: bold;
-    margin: 60px 0 20px;
+    margin: 30px 0 10px;
 }
 
 .report-section-subtitle {
@@ -404,28 +404,25 @@ body:has(.sidebar-shown) {
     font-size: var(--font-small);
 }
 
-.report-image-wrapper {
+.report-section-image-container {
     width: 100%;
     min-height: 300px;
-    margin: 40px 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.report-image-wrapper img {
-    width: 100%;
+.report-section-image-container img {
+    width: 70%;
     height: 100%;
     object-fit: cover;
 }
 
-.demographic-graph img {
-    width: 70%;
-}
-
-.report-image-label {
+.report-section-label {
+    color: rgb(131, 77, 77);
     font-size: var(--font-label);
-    opacity: .5;
+    font-style: italic;
+    opacity: .8;
 }
 
 .side-content-box::before{
