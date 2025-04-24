@@ -10,7 +10,7 @@ function fetchContent() {
     .then(data => {
         const lines = data.split('\n');
         lines.forEach(line => {
-            if (line.startsWith("!")) {
+            if (line.startsWith(".")) {
                 addPageMarker(line, headerContainer, sidebarContent, contentContainer);
                 return;
             } 
@@ -30,6 +30,8 @@ function translateContent(line) {
     switch (lineStart) {
         case "_":
             return createNewImage(line);
+        case "+":
+            return createNewVideo(line);
         case "#":
             return createNewChapterHeader(line);
         case "!":
@@ -66,7 +68,6 @@ function addPageMarker(line, header, sidebar, content) {
 function createNewImage(line) {
     const newImageContainer = document.createElement("div");
     const newImage = document.createElement("img");
-    const newLabel = document.createElement("p");
 
     newImageContainer.setAttribute("class", "report-section-image-container");
 
@@ -74,13 +75,36 @@ function createNewImage(line) {
     newImage.setAttribute("src", line.split("_")[1]);
     newImage.setAttribute("alt", "Image not found");
 
-    newLabel.setAttribute("class", "report-section-label");
-    newLabel.innerText = line.split("_")[2];
+    const label = line.split("_")[2];
+
+    if (label != undefined) {
+        const newLabel = document.createElement("p");       
+        newLabel.setAttribute("class", "report-section-label");
+        newImageContainer.appendChild(newLabel);
+    }
 
     newImageContainer.appendChild(newImage);
-    newImageContainer.appendChild(newLabel);
+    newImage.style.width = line.split("_")[3];
 
     return newImageContainer;
+}
+
+function createNewVideo(line) {
+    const source = line.substring(1);
+
+    const videoElement = `
+        <video class="report-section-video" controls>
+            <source src="${source}.mp4" type="video/mp4">
+            <source src="${source}.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
+    `;
+
+    const videoContainer = document.createElement("div");
+    videoContainer.setAttribute("class", "report-section-video-container");
+    videoContainer.innerHTML = videoElement;
+    
+    return videoContainer;
 }
 
 function createNewChapterHeader(line) {
