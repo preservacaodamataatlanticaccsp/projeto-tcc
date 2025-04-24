@@ -369,7 +369,7 @@ body:has(.sidebar-shown) {
 
 .main-content {
     width: 100%;
-    margin: 80px 0 400px;
+    margin: 80px 0 370px;
     padding: 0 35% 0 20%;
     justify-content: center;
     gap: calc(var(--gap) * 2);
@@ -518,4 +518,14 @@ body:has(.sidebar-shown) {
 .sources-item:hover {
     color: var(--highlight);
     text-decoration: underline;
+}
+
+#warning {
+    width: 50%;
+    min-width: 250px;
+    font-size: .8rem;
+    text-align: center;
+    margin: auto;
+    padding: 0 0 150px;
+    opacity: .5;
 }
