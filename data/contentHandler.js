@@ -20,6 +20,25 @@ function fetchContent() {
     .catch(error => console.error('Error fetching content:', error));
 }
 
+function translateContent(line) {
+    const lineStart = line.charAt(0);
+
+    if (line.trim() === "") {
+        return document.createElement("br");
+    }
+
+    switch (lineStart) {
+        case "_":
+            return createNewImage(line);
+        case "#":
+            return createNewChapterHeader(line);
+        case "!":
+            return createNewAnwserParagraph(line);
+        default:
+            return createNewParagraph(line);
+    }
+}
+
 function addPageMarker(line, header, sidebar, content) {
     const newMarker = document.createElement("div");
     const newHeaderLink = document.createElement("a");
@@ -42,32 +61,6 @@ function addPageMarker(line, header, sidebar, content) {
     sidebar.appendChild(newSidebarItem);
     content.appendChild(newMarker);
     header.appendChild(newHeaderLink);
-}
-
-function translateContent(line) {
-    if (line.trim() === "") {
-        return document.createElement("br");
-    }
-
-    if (line.startsWith("_")) {
-        return createNewImage(line);
-    }
-
-    if (line.startsWith("##")) {
-        return createNewChapterHeader(line);
-    }
-
-    if (line.startsWith("#")) {
-        return createNewQuestionHeader(line);
-    }
-    
-    if (line.startsWith(".!")) {
-        return createNewAnwserParagraph(line);
-    }
-
-    if (line.startsWith(".")) {
-        return createNewParagraph(line);
-    }
 }
 
 function createNewImage(line) {
@@ -97,7 +90,7 @@ function createNewChapterHeader(line) {
 
     newHeader.setAttribute("class", "report-section-title line-highlight");
 
-    headerNumberSpan.innerText = line.split(":")[0].substring(2) + ":";
+    headerNumberSpan.innerText = line.split(":")[0].substring(1) + ":";
     headerNameSpan.innerText = line.split(":")[1];
     newHeader.appendChild(headerNumberSpan);
     newHeader.appendChild(headerNameSpan);
@@ -136,7 +129,7 @@ function createNewParagraph(line) {
 
     newParagraph.setAttribute("class", "report-section-text");
 
-    newParagraph.innerText = line.substring(1);
+    newParagraph.innerText = line;
 
     return newParagraph;
 }

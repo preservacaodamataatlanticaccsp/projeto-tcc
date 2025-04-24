@@ -47,8 +47,9 @@
 .page-markers {
     height: 0;
     position: relative;
-    top: -10px;
+    top: -200px;
     visibility: hidden;
+
 }
 
 .line-highlight {
@@ -343,6 +344,7 @@ body:has(.sidebar-shown) {
     justify-content: center;
     align-items: center;
     gap: 2.7rem;
+    position: relative;
     /* backdrop-filter: blur(5px); */
 }
 
@@ -358,10 +360,11 @@ body:has(.sidebar-shown) {
     line-height: 1.7rem;
 }
 
-.hero-signature {
+#signature {
+    color: white;
     font-weight: bold;
-    position: relative;
-    top: 150px;
+    position: absolute;
+    bottom: 50px;
 }
 
 .main-content {
@@ -413,8 +416,7 @@ body:has(.sidebar-shown) {
 }
 
 .report-section-image-container img {
-    width: 70%;
-    height: 100%;
+    width: 55%;
     object-fit: cover;
 }
 

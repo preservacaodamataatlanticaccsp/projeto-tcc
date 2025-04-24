@@ -8,9 +8,13 @@
         flex-direction: column;
     }
 
-    .report-image-wrapper {
+    .report-section-image-container {
         justify-content: center;
         align-items: center;
+    }
+
+    .report-section-image-container img {
+        width: 70%;
     }
 
     .header {
