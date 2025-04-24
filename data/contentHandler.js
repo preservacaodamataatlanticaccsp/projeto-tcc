@@ -15,6 +15,7 @@ function fetchContent() {
                 return;
             } 
             contentContainer.appendChild(translateContent(line));
+            document.querySelectorAll('video').forEach(video => video.volume = 0.15);
         });
     })
     .catch(error => console.error('Error fetching content:', error));
