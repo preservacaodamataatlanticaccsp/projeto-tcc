@@ -24,4 +24,9 @@
     .sidebar-trigger {
         display: block;
     }
+
+    img {
+        margin-bottom: -90px;
+        margin-top: -180px;
+    }
 }
