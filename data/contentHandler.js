@@ -1,8 +1,6 @@
 fetchContent();
 
 function fetchContent() {
-    const headerContainer = document.getElementById("header-wrapper");
-    const sidebarContent = document.getElementsByClassName("sidebar-list")[0];
     const contentContainer = document.getElementById("content-wrapper");
 
     fetch("./data/Content.txt")
@@ -10,10 +8,6 @@ function fetchContent() {
     .then(data => {
         const lines = data.split('\n');
         lines.forEach(line => {
-            if (line.startsWith(".")) {
-                addPageMarker(line, headerContainer, sidebarContent, contentContainer);
-                return;
-            } 
             contentContainer.appendChild(translateContent(line));
             document.querySelectorAll('video').forEach(video => video.volume = 0.15);
         });
@@ -40,30 +34,6 @@ function translateContent(line) {
         default:
             return createNewParagraph(line);
     }
-}
-
-function addPageMarker(line, header, sidebar, content) {
-    const newMarker = document.createElement("div");
-    const newHeaderLink = document.createElement("a");
-    const newSidebarItem = document.createElement("li");
-    const newSidebarLink = document.createElement("a");
-
-    newMarker.setAttribute("class", "page-markers");
-    newMarker.setAttribute("id", line.substring(1));
-
-    newHeaderLink.setAttribute("class", "header-nav-link content-highlight");
-    newHeaderLink.setAttribute("href", "#" + line.substring(1));
-    newHeaderLink.innerText = line.substring(1).replace("-", " ");
-
-    newSidebarItem.setAttribute("class", "sidebar-item");
-    newSidebarLink.setAttribute("class", "sidebar-link");
-    newSidebarLink.setAttribute("href", "#" + line.substring(1));
-    newSidebarLink.innerText = line.substring(1).replace("-", " ");
-
-    newSidebarItem.appendChild(newSidebarLink);
-    sidebar.appendChild(newSidebarItem);
-    content.appendChild(newMarker);
-    header.appendChild(newHeaderLink);
 }
 
 function createNewImage(line) {
